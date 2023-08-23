@@ -1,0 +1,17 @@
+## WEB STACK IMPLEMENTATION (LAMP STACK) IN AWS
+<p>In this article, you will learn how to implement LAMP stack on aws</p>
+
+## Overview
+LAMP is an acronym of four software technologies that developers used for building website and web application. It is denoted from <b>LINUX</b> an operating system, <b>Apache</b> a web server, <b>mySQL</b> a database server, and <b>PHP</b> a server-side programming language. LAMP is a stack 
+
+AWS means Amazon Web Services (AWS) is a secure cloud services platform, offering compute power, database storage and it helps Running  web and application servers in the cloud to host dynamic websites. I'll be using a cloud server called <b>Ec2 server </b>  which will enables us to use a virtual server and it offers a free tier account that we are going to leverage on for this projects.
+
+EC2 means elastic compute cloud. it is a virtual server that provides secure, resizable compute capacity in the cloud.
+
+
+
+## Prerequisites
+In order to proceed, I believe the reader have a AWS account because you will need an AWS account and a virtual server with Ubuntu Server OS else <a href="https://portal.aws.amazon.com/billing/signup">click here</a> to create an account. 
+
+
+
