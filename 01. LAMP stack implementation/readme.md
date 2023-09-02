@@ -107,7 +107,84 @@ $ php -v
 <img src="./Images/Screenshot 2023-08-23 at 22.58.25.png">
 
 
+## Deploy your PHP website
+
+Create a new directory <directory_name>
+
+```bash
+$ sudo mkdir /var/www/<directory_name>
+```
+
+Assign ownership of the directory with your current system user
+```bash
+$ sudo chown -R $USER:$USER /var/www/<directory_name>
+```
+
+Create and open a new configuration file in Apache’s sites-available directory using your preferred command-line editor
+
+```bash
+$ sudo vi /etc/apache2/sites-available/<directory_name>.conf
+```
+
+The command above will create a new file and you will paste this code in it 
+
+```bash
+$ <VirtualHost *:80>
+    ServerName proj<directory_name>ectlamp
+    ServerAlias <directory_name> 
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/<directory_name>
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+To save and close the file, simply follow the steps below:
+<ul>
+<li>Hit the esc button on the keyboard</li>
+<li>Type :</li>
+<li>Type wq. w for write and q for quit</li>
+<li>Hit ENTER to save the file</li>
+</ul>
+
+You can use `ls` to list the document in the directory 
+
+Run esc :wq  to save and terminate vi editor.
+
+Run `sudo a2ensite projectlampstack` to activate the server block.
+
+Run `sudo a2dissite 000-default` to deactivate the default webserver block that comes with apache on default.
+
+Reload the apache2 server `sudo systemctl reload apache2`
 
 
+Create a index file inside you directory `/var/www/<folder_name>`
+```bash
+$ cd /var/www/<folder_name>
+$ touch index.html
+```
 
+Write your html code into the file using `sudo vi <filename>``
+```bash
+<!DOCTYPE html>
+<html>
+<head>
+    <title>01. LAMP stack implementation</title>
+</head>
+<body>
+    <h1>hello world</h1>
+</body>
+</html>
+```
+To save and close the file, simply follow the steps below:
+<ul>
+<li>Hit the esc button on the keyboard</li>
+<li>Type :</li>
+<li>Type wq!</li>
+<li>Hit ENTER to save the file</li>
+</ul>
+
+Go to your browser and try to open your website URL using your public IP address:
+
+`http://<Public-IP-Address>:80`
 
