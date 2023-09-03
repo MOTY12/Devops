@@ -186,5 +186,34 @@ To save and close the file, simply follow the steps below:
 
 Go to your browser and try to open your website URL using your public IP address:
 
-`http://<Public-IP-Address>:80`
+`http://<Public-IP-Address>:80` or `http://<Public-IP-Address>`
+
+<img src="./Images/result.png">
+
+
+<h3>Enable PHP on the website</h3>
+
+By default, in Apache, if both an index.html and an index.php file exist in a directory, the server will prioritize displaying the index.html file over the index.php file. This feature can be advantageous when configuring maintenance pages for PHP applications. You can achieve this by temporarily creating an index.html file with informative content for visitors. Since the index.html page takes precedence over the index.php page, it becomes the primary landing page for your application during maintenance. Once the maintenance work is completed, you can either rename or delete the index.html file from the document root, restoring the regular application page.
+
+If you wish to modify this behavior and give priority to the index.php file, you'll need to edit the `/etc/apache2/mods-enabled/dir.conf file`. Inside this file, you can adjust the order in which the index.php file is listed within the DirectoryIndex directive.
+
+```bash
+$ sudo vim /etc/apache2/mods-enabled/dir.conf
+```
+
+
+```bash
+<IfModule mod_dir.c>
+     #Change this:
+    #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+    #To this:
+    DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+</IfModule>
+```
+
+After saving and close the file then we need to reload the Apache
+
+```bash
+$ sudo systemctl reload apache2
+```
 
