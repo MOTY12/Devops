@@ -211,9 +211,30 @@ $ sudo vim /etc/apache2/mods-enabled/dir.conf
 </IfModule>
 ```
 
-After saving and close the file then we need to reload the Apache
+After we save the file then we need to reload the Apache
 
 ```bash
 $ sudo systemctl reload apache2
 ```
 
+Create a php file to test if php is setup correctly and configured 
+
+```bash
+$ vim /var/www/<folder_name>/index.php
+```
+
+Write your php code and save. Below is a sample code 
+
+```bash
+<?php
+phpinfo();
+```
+
+Go to your browser and open your website URL using your public IP address:
+
+```bash
+http://<Public-IP-Address>:80 or http://<Public-IP-Address>
+```
+
+
+Congratulations on successfully deploying your LAMP stack on AWS! You've achieved a significant milestone.
