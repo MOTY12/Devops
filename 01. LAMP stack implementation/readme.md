@@ -236,5 +236,6 @@ Go to your browser and open your website URL using your public IP address:
 http://<Public-IP-Address>:80 or http://<Public-IP-Address>
 ```
 
+<img src="./Images/Screenshot 2023-09-06 at 21.26.41.png">
 
 Congratulations on successfully deploying your LAMP stack on AWS! You've achieved a significant milestone.
