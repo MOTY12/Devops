@@ -21,3 +21,5 @@ _italic_ or _italic_
 
 `console.log('Welcome to darey.io')`
 
+
+Note: https://learn.microsoft.com/en-us/contribute/content/markdown-reference
