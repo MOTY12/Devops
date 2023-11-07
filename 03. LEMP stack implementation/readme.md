@@ -7,7 +7,7 @@ Before i proceed i believe the reader have an account(AWS) and knowledge of how 
 
 Firstly, we need to connect to the aws server.
 
-<img src="./images/Screenshot 2023-11-03 at 13.52.45.png">
+<img src="./images/Screenshot01.png">
 
 After connecting to the our remote server we need to install Nginx web server. NGINX is a high performance server
 
@@ -19,16 +19,16 @@ After connecting to the our remote server we need to install Nginx web server. N
 $ sudo apt update
 $ sudo apt install nginx
 ```
-<img src="./images/Screenshot 2023-11-04 at 16.44.38.png">
+<img src="./images/Screenshot02.png">
 
 when prompted, enter `Y` to confirm the installation of nginx. Once the installation is finished, the server will be activated.
-<img src="./images/Screenshot 2023-11-04 at 16.47.47.png">
+<img src="./images/Screenshot03.png">
 To verify the server is install successfully 
 ```
 $ sudo systemctl status nginx
 ```
 
-<img src="./images/Screenshot 2023-11-04 at 16.50.03.png">
+<img src="./images/Screenshot04.png">
 
 Before traffic can be received on our web server. we need to open a `TCP port 80` which is a default port for web browser used to access web pages in the internet. Port 22 is the default port created by ec2 machine for ssh access, so we need to add a rule to EC2 configuration to open inbound connection through port 80
 
@@ -44,7 +44,7 @@ The code above is to access the Nginx server locally using domain name `localhos
 
 **Resolution** is the process of converting a DNS name to IP address.
 
-<img src="./images/Screenshot 2023-11-04 at 17.20.24.png">
+<img src="./images/Screenshot05.png">
 
 Let test our nginx server on internet using a web browser.
 
@@ -52,7 +52,7 @@ Let test our nginx server on internet using a web browser.
 http://<Public-IP-Address>:80
 ```
 
-<img src="./images/Screenshot 2023-11-04 at 17.23.07.png">
+<img src="./images/Screenshot06.png">
 
 Let install a mysql on our server.
 
