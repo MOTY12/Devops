@@ -7,7 +7,7 @@ Before i proceed i believe the reader have an account(AWS) and knowledge of how 
 
 Firstly, we need to connect to the aws server.
 
-<img src="./images/Screenshot01.png">
+<img src="./Images/Screenshot01.png">
 
 After connecting to the our remote server we need to install Nginx web server. NGINX is a high performance server
 
@@ -19,20 +19,20 @@ After connecting to the our remote server we need to install Nginx web server. N
 $ sudo apt update
 $ sudo apt install nginx
 ```
-<img src="./images/Screenshot02.png">
+<img src="./Images/Screenshot02.png">
 
 when prompted, enter `Y` to confirm the installation of nginx. Once the installation is finished, the server will be activated.
-<img src="./images/Screenshot03.png">
+<img src="./Images/Screenshot03.png">
 To verify the server is install successfully 
 ```
 $ sudo systemctl status nginx
 ```
 
-<img src="./images/Screenshot04.png">
+<img src="./Images/Screenshot04.png">
 
 Before traffic can be received on our web server. we need to open a `TCP port 80` which is a default port for web browser used to access web pages in the internet. Port 22 is the default port created by ec2 machine for ssh access, so we need to add a rule to EC2 configuration to open inbound connection through port 80
 
-<img src="./images/OpenPort80 (1).gif">
+<img src="./Images/OpenPort80 (1).gif">
 
 Our server is running and it can be accessed on locally and on the internet (Source 0.0.0.0/0 means 'from any IP address)
 ```
@@ -44,7 +44,7 @@ The code above is to access the Nginx server locally using domain name `localhos
 
 **Resolution** is the process of converting a DNS name to IP address.
 
-<img src="./images/Screenshot05.png">
+<img src="./Images/Screenshot05.png">
 
 Let test our nginx server on internet using a web browser.
 
@@ -52,7 +52,7 @@ Let test our nginx server on internet using a web browser.
 http://<Public-IP-Address>:80
 ```
 
-<img src="./images/Screenshot06.png">
+<img src="./Images/Screenshot06.png">
 
 Let install a mysql on our server.
 
@@ -238,7 +238,7 @@ $ sudo systemctl reload nginx
 ```
 Your new website is now active, but the web root /var/www/projectLEMP is still empty. Create an index.html file in that location so that we can test that your new server block works as expected:
 ```
-sudo echo 'Hello LEMP from hostname' $(curl -s http://3.93.2.100/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://3.93.2.100/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
+sudo echo 'Hello LEMP from hostname' $(curl -s http://3.93.2.100/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://3.93.2.100/latest/meta-data/public-ipv4) > /var/www/projectLEMP/Index.html
 
 ```
 
@@ -252,7 +252,7 @@ Now the server is completely installed and running but let test with a `.php` fi
 
 let crete a php file `info.php` 
 ```
-$ nano /var/www/projectLEMP/info.php
+$ nano /var/www/projectLEMP/Info.php
 ```
 
 write this code on the file 
@@ -265,5 +265,5 @@ phpinfo();
 
 you can access the the file on you browser 
 ```
-http://`server_domain_or_IP`/info.php
+http://`server_domain_or_IP`/Info.php
 ```
