@@ -15,13 +15,13 @@ Next we will provision another EC2 instance running ubuntu 22.04, this time we w
 ```
 $ sudo apt update -y &&  sudo apt install apache2 -y
 ```
-<img src="./Images /Img01.png">
+<img src="./Images/Img01.png">
 
 - Verify the apache is running
 ```
 $ sudo systemctl status apache2
 ```
-<img src="./Images /Img02.png">
+<img src="./Images/Img02.png">
 
 **Step 3:** Configure Apache to server a page showing its public IP: 
 we configure the Apache webserver to serve content on port 8000 instead of its default which is port 80. Then we will create a new index.html file. The file will contain code to display the public IP of the EC2 instance. We will then override apache webserver's default html file with our new file.
@@ -32,14 +32,14 @@ $ sudo vi /etc/apache2/ports.conf
 ```
 -- Add a new Listen directive for port 8000: First type i to switch the editor to insert mode. Then add the listen directive. Then save your file `esc` + `:wq`.
 
-<img src="./Images /Img03.png">
+<img src="./Images/Img03.png">
 
 -- Next open the file /etc/apache2/sites-available/000-default.conf and change port 80 on the virtualhost to 8000 like the screenshot below:
 
 ```
 $ sudo vi /etc/apache2/sites-available/000-default.conf
 ```
-<img src="./Images /Img04.png">
+<img src="./Images/Img04.png">
 
 -- Restart apache to load the new configuration using the command below:
 ```
@@ -81,7 +81,7 @@ $ sudo cp -f ./index.html /var/www/html/index.html
 $ sudo systemctl restart apache2
 ```
 
-<img src="./Images /Img05.png">
+<img src="./Images/Img05.png">
 
 
 **Step 4:**  Configuring Nginx as a Load Balancer
