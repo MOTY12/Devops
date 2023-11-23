@@ -1,3 +1,5 @@
+## Nginx
+A high performance web server and a reverse proxy server
 ## Client-server architecture 
 It is a computing model in which the server hosts, delivers and manages most of the resources and services to be consumed by the client.
 
