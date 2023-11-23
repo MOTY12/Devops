@@ -46,6 +46,7 @@ $ sudo vi /etc/apache2/sites-available/000-default.conf
 $ sudo systemctl restart apache2
 ```
 
+
 - Creating our new html file:
 -- Open a new index.html file with command below:
 
