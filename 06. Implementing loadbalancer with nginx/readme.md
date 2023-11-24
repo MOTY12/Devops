@@ -144,6 +144,8 @@ $ sudo nginx -t
 $ sudo systemctl restart nginx
 ```
 
+<img src="./Images/Img08.png">
+
 <div class="my-5" id="page3"><h1 class="fw-bold">Load Balancing Algorithms</h1><h2>Load Balancing Algorithms</h2>
 <p>Load balancer algorithms are techniques used to distribute incoming network traffic or workload across multiple servers, ensuring efficient utilization of resources and improving overall system performance, reliability, and availability. Here are some common load balancer algorithms:</p>
 <ol>
