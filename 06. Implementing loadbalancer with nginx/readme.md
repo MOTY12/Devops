@@ -127,7 +127,7 @@ $ sudo vi /etc/nginx/conf.d/loadbalancer.conf
         }
     
 ```
-
+<img src="./Images/Img09.png">
 <p><strong>upstream backend_servers</strong> defines a group of backend servers.
 The <strong>server</strong> lines inside the <strong>upstream</strong> block list the addresses and ports of your backend servers.
 <strong>proxy_pass</strong> inside the <strong>location</strong> block sets up the load balancing, passing the requests to the backend servers.
