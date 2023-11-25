@@ -69,3 +69,92 @@ Your result should be this:
 <img src="./images/img02.png">
 
 # Deployment of Nginx as a Load Balancer using Shell script
+
+Having successfully deployed and configured two webservers, We will move on to the load balancer. As a prerequisite, we need to provision an EC2 instance running ubuntu 22.04, open port 80 to anywhere using the security group and connect to the load balancer via the terminal.
+
+### Deploying and Configuring Nginx Load Balancer
+
+Will be using shell script to implement load balancer with nginx using the code below:
+
+```
+#!/bin/bash
+
+######################################################################################################################
+##### This automates the configuration of Nginx to act as a load balancer
+##### Usage: The script is called with 3 command line arguments. The public IP of the EC2 instance where Nginx is installed
+##### the webserver urls for which the load balancer distributes traffic. An example of how to call the script is shown below:
+##### ./configure_nginx_loadbalancer.sh PUBLIC_IP Webserver-1 Webserver-2
+#####  ./configure_nginx_loadbalancer.sh 127.0.0.1 192.2.4.6:8000  192.32.5.8:8000
+############################################################################################################# 
+
+PUBLIC_IP=$1
+firstWebserver=$2
+secondWebserver=$3
+
+[ -z "${PUBLIC_IP}" ] && echo "Please pass the Public IP of your EC2 instance as the argument to the script" && exit 1
+
+[ -z "${firstWebserver}" ] && echo "Please pass the Public IP together with its port number in this format: 127.0.0.1:8000 as the second argument to the script" && exit 1
+
+[ -z "${secondWebserver}" ] && echo "Please pass the Public IP together with its port number in this format: 127.0.0.1:8000 as the third argument to the script" && exit 1
+
+set -x # debug mode
+set -e # exit the script if there is an error
+set -o pipefail # exit the script when there is a pipe failure
+
+
+sudo apt update -y && sudo apt install nginx -y
+sudo systemctl status nginx
+
+if [[ $? -eq 0 ]]; then
+    sudo touch /etc/nginx/conf.d/loadbalancer.conf
+
+    sudo chmod 777 /etc/nginx/conf.d/loadbalancer.conf
+    sudo chmod 777 -R /etc/nginx/
+
+    
+    echo " upstream backend_servers {
+
+            # your are to replace the public IP and Port to that of your webservers
+            server  "${firstWebserver}"; # public IP and port for webserser 1
+            server "${secondWebserver}"; # public IP and port for webserver 2
+
+            }
+
+           server {
+            listen 80;
+            server_name "${PUBLIC_IP}";
+
+            location / {
+                proxy_pass http://backend_servers;   
+            }
+    } " > /etc/nginx/conf.d/loadbalancer.conf
+fi
+
+sudo nginx -t
+
+sudo systemctl restart nginx
+
+```
+
+To run the above code follow the following steps:
+-  On your terminal, open a file nginx.sh using the command below:
+```
+$ sudo vi nginx.sh
+```
+-  Copy and Paste the script inside the file
+-  Close the file using the command below:
+```
+type esc the shift + :wqa!
+```
+-  Change the file permission to make it an executable using the command below:
+```
+$ sudo chmod +x nginx.sh
+```
+-  Run the script with the command below:
+```
+./nginx.sh PUBLIC_IP Webserver-1 Webserver-2
+```
+<img src="./images/img03.png">
+
+After running the code this is what you wil get to know if the configuration is successful. 
+<img src="./images/img04.png">
