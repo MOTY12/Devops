@@ -135,6 +135,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 ```
+<img src="./images/img07.png">
 
 To run the above code follow the following steps:
 -  On your terminal, open a file nginx.sh using the command below:
@@ -158,3 +159,9 @@ $ sudo chmod +x nginx.sh
 
 After running the code this is what you wil get to know if the configuration is successful. 
 <img src="./images/img04.png">
+
+## Verifying the setup
+Screnshot of the first Server load balancing
+<img src="./images/img05.png">
+Screnshot of the second Server load balancing
+<img src="./images/img06.png">
