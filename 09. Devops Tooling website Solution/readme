@@ -1,0 +1,33 @@
+# Devops Tooling website Solution
+The tools we want our team to be able to use are well known and widely used by multiple DevOps teams, so we will introduce a single DevOps Tooling Solution that will consist of:
+
+- Jenkins - free and open source automation server used to build CI/CD pipelines.
+
+- Kubernetes - an open-source container-orchestration system for automating computer application deployment, scaling, and management.
+
+- Jfrog Artifactory - Universal Repository Manager supporting all major packaging formats, build tools and CI servers. Artifactory.
+
+- Rancher - an open source software platform that enables organizations to run and manage Docker and Kubernetes in production.
+
+- Grafana - a multi-platform open source analytics and interactive visualization web application.
+
+- Prometheus - An open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach.
+
+- Kibana - Kibana is a free and open user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack.
+
+## Network-attached storage (NAS):
+## Storage Area Network (SAN) 
+NFS, (s)FTP, SMB, iSCSI
+
+what Block-level storage is and how it is used by Cloud Service providers, know the difference from Object storage.
+On the example of AWS services understand the difference between Block Storage, Object Storage and Network File System.
+
+
+
+This project consist of following servers:
+
+- Web server(RHEL)
+- Database server(Ubuntu + MySQL)
+- Storage/File server(RHEL + NFS server)
+
+Create a NFS Server
